@@ -102,4 +102,9 @@ EOF
 
 echo "✅ Cursor IDE setup complete. You may need to run \`update-desktop-database\` or reboot to see it in the app menu."
 
+echo "Adding data directory..."
+sudo mkdir /mnt/data
+sudo chown dan:dan /mnt/data
+
+
 yay -Syu
