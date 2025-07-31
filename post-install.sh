@@ -39,7 +39,9 @@ yay -S --noconfirm \
   qt6-imageformats \
   appstream \
   octopi \
-  libreoffice-fresh
+  libreoffice-fresh \
+  fprintd \
+  libfprint
 
 flatpack remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo systemctl enable --now cups.service
