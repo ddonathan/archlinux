@@ -158,6 +158,24 @@ kquitapp5 plasmashell && kstart5 plasmashell
 
 echo "✅ Done! Edge profiles added to the application launcher under 'Internet'."
 
+echo "Installing and configuring firewall..."
+yay -S ufw
+sudo systemctl enable --now ufw
+
+# Allow outgoing, deny incoming (default)
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow common services
+sudo ufw allow ssh
+sudo ufw allow 443  # HTTPS
+sudo ufw allow 80   # HTTP
+
+# Enable it
+sudo ufw enable
+
+# Check status
+sudo ufw status verbose
 
 
 yay -Syu
