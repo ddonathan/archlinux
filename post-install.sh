@@ -106,5 +106,58 @@ echo "Adding data directory..."
 sudo mkdir /mnt/data
 sudo chown dan:dan /mnt/data
 
+echo "Setting up three icons for Edge..."
+#!/bin/bash
+
+set -e
+
+echo "==> Installing required KDE utilities..."
+sudo pacman -S --noconfirm plasma-workspace
+
+echo "==> Creating Edge profile launchers..."
+mkdir -p ~/.local/share/applications
+
+# Edge - Personal
+cat <<EOF > ~/.local/share/applications/edge-personal.desktop
+[Desktop Entry]
+Name=Edge - Personal
+Exec=microsoft-edge-stable --profile-directory=Default
+Icon=microsoft-edge
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+EOF
+
+# Edge - Tonic HQ
+cat <<EOF > ~/.local/share/applications/edge-tonic.desktop
+[Desktop Entry]
+Name=Edge - Tonic HQ
+Exec=microsoft-edge-stable --profile-directory="Profile 1"
+Icon=microsoft-edge
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+EOF
+
+# Edge - Bellwether
+cat <<EOF > ~/.local/share/applications/edge-bellwether.desktop
+[Desktop Entry]
+Name=Edge - Bellwether
+Exec=microsoft-edge-stable --profile-directory="Profile 2"
+Icon=microsoft-edge
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+EOF
+
+echo "==> Refreshing KDE application database..."
+kbuildsycoca5
+
+echo "==> Restarting Plasma shell..."
+kquitapp5 plasmashell && kstart5 plasmashell
+
+echo "✅ Done! Edge profiles added to the application launcher under 'Internet'."
+
+
 
 yay -Syu
