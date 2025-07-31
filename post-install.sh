@@ -112,7 +112,7 @@ echo "Setting up three icons for Edge..."
 set -e
 
 echo "==> Installing required KDE utilities..."
-sudo pacman -S --noconfirm plasma-workspace
+yay -S --noconfirm plasma-workspace
 
 echo "==> Creating Edge profile launchers..."
 mkdir -p ~/.local/share/applications
