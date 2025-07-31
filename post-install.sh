@@ -41,7 +41,8 @@ yay -S --noconfirm \
   octopi \
   libreoffice-fresh \
   fprintd \
-  libfprint
+  libfprint \
+  virtualbox-bin
 
 flatpack remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo systemctl enable --now cups.service
