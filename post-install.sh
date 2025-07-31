@@ -42,13 +42,19 @@ yay -S --noconfirm \
   libreoffice-fresh \
   fprintd \
   libfprint \
-  virtualbox-bin
+  virtualbox-bin \
+  networkmanager
 
 flatpack remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo systemctl enable --now cups.service
 
 echo "==> Updating system..."
 yay -Syu
+
+echo "Adding Network Manager..." 
+sudo systemctl enable NetworkManager.service
+sudo systemctl start NetworkManager.service
+
 
 # Fix for Discover
 echo "==> Installing Discover and app store support..."
